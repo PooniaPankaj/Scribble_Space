@@ -4,11 +4,13 @@ connectToMongo();
 
 
 const app = express()
-const port = 3000
+const port = 8000
 app.use(express.json());
 
 
-app.use('/user', require('./routes/user'));
+app.use('/api/user', require('./routes/user'));
+app.use('/api/auth', require('./routes/auth'));
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
