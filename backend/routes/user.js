@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 const { default: mongoose } = require('mongoose');
+const bcrypt = require('bcryptjs');
 // POST request at /api/user/createuser
 router.post('/createUser',[
     body('name','Enter a valid Name').isLength({min:1}),
@@ -23,9 +24,12 @@ router.post('/createUser',[
     if (user1){
       return res.status(400).json({error:"Sorry a user with this email already existed "})
     }
+    const salt = await bcrypt.genSalt(10)
+    // we are making it await bcz it will return promises 
+    const secpassword = await bcrypt.hash(req.body.password,salt);
     let user = await User.create({
         name: req.body.name,
-        password: req.body.password,
+        password: secpassword,
         email:req.body.email,
       })
       // .then(user => res.json(user))
@@ -33,7 +37,7 @@ router.post('/createUser',[
       // res.json({error:"Please enter a unique value for email" , message:err.message})})
       res.json(user);
     }catch{
-      console.error(error.message);
+      // console.error(error.message);
       res.status(500).send("Some error occured")
     }
     
