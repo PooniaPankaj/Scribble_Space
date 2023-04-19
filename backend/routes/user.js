@@ -4,6 +4,8 @@ const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 const { default: mongoose } = require('mongoose');
 const bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
+
 // POST request at /api/user/createuser
 router.post('/createUser',[
     body('name','Enter a valid Name').isLength({min:1}),
@@ -32,10 +34,17 @@ router.post('/createUser',[
         password: secpassword,
         email:req.body.email,
       })
+      const data = {
+        user:{
+          id : user.id
+        }
+      }
+      const authToken =  jwt.sign(data,"JWT_SECRET");
+      // console.log(userToken);
       // .then(user => res.json(user))
       // .catch(err=>{console.log(err)
       // res.json({error:"Please enter a unique value for email" , message:err.message})})
-      res.json(user);
+      res.json({authToken});
     }catch{
       // console.error(error.message);
       res.status(500).send("Some error occured")
