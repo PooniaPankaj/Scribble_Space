@@ -8,12 +8,14 @@ import MyNotes from './components/MyNotes';
 
 import { Routes, Route } from "react-router-dom"
 import NoteState from './context/Notes/NoteState';
+import Alert from './components/Alert';
 function App() {
   return (
     <>
       <NoteState>
 
           <Navbar/>
+          <Alert/>
           {/* <Home/> */}
           <Routes>
               <Route exact strict path="/" element={ <Home /> } />
