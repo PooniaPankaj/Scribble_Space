@@ -1,35 +1,44 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import noteContext from '../context/Notes/NoteContext'
+import { useNavigate } from 'react-router-dom';
 
-const AddNote = () => {
+const AddNote = (props) => {
     const context = useContext(noteContext);
     // destructuring 
+    const navigate = useNavigate();
     const addNotes = context.addNote;
     const [Note, setNote] = useState({ title: "", description: "", tag: "" })
     const handleClick = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         addNotes(Note.title, Note.description, Note.tag);
-        // setNote({ title: "", description: "", tag: "default" })
+        props.showAlert("Note added successfully" ,"success")
+        setNote({ title: "", description: "", tag: "" })
     }
     const onchange = (e) => {
         // we basically take values from input fields and place or overwrite them in Note
         // console.log(e.target.value,e.target.name);
         setNote({ ...Note, [e.target.name]: e.target.value })
     }
+    // useEffect(() => {
+    //     if (localStorage.getItem('token')==null){
+    //         navigate('/login');
+    //     }
+        
+    //   }, [])
      
     return (
-        <div>
-            <div className='container my-4 w-50 border border-dark rounded p-4'>
+        <div style={{margin: "100px 0px"}} >
+            <div className='container  my-5 w-50 border border-dark rounded p-4'>
 
                 <h3 className='d-flex justify-content-center border-bottom w-100'>Add Notes</h3>
                 <form className='container my-4 p-4'>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" onChange={onchange} />
+                        <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" onChange={onchange} value={Note.title}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">Description</label>
-                        <input type="text" className="form-control" id="description" name="description" onChange={onchange}  />
+                        <input type="text" className="form-control" id="description" name="description" onChange={onchange}  value={Note.description}  />
                     </div>
                     {/* make a tag a MCQ type question  */}
                     {/* <div className="mb-3">

@@ -2,8 +2,10 @@ import React, { useState, useContext, useEffect, useRef } from 'react'
 import noteContext from '../context/Notes/NoteContext'
 import NoteItem from './NoteItem';
 import AddNote from './AddNote'
+import { useNavigate } from 'react-router-dom';
 
-const MyNotes = () => {
+const MyNotes = (props) => {
+  const navigate = useNavigate();
   const context = useContext(noteContext);
   // destructuring 
   const notes = context.Notes;
@@ -12,7 +14,14 @@ const MyNotes = () => {
   const editNote = context.editNote;
 
   useEffect(() => {
-    getNotes();
+    if (localStorage.getItem('token')){
+      // console.log(localStorage.getItem('token'))
+      getNotes(); 
+    }
+    else{
+        navigate('/login');
+    }
+    
   }, [])
   var [note, setnote] = useState({ title: "", description: "", tag: "" });
   // using ref to reference the particular note or for using the update function functionality
@@ -28,7 +37,7 @@ const MyNotes = () => {
 
   const updateNote = (currentNote) => {
     ref.current.click();
-    console.log(currentNote);
+    // console.log(currentNote);
     note = currentNote
     notee = currentNote;
     // useEffect(() => {
@@ -52,7 +61,7 @@ const MyNotes = () => {
     // setnote(currentNote);
     // setnote(note);
     // setnote({title:"hello"});
-    console.log(note);
+    // console.log(note);
     // console.log(note.description);
     // note.title = "hello";
 
@@ -64,6 +73,7 @@ const MyNotes = () => {
     // e.preventDefault();
     editNote(note._id, note.title, note.description, note.tag);
     refclose.current.click();
+    props.showAlert("Note edited successfully ","success")
     // addNotes(Note.title, Note.description, Note.tag);
   }
   const onchange = (e) => {
@@ -141,7 +151,7 @@ const MyNotes = () => {
             {notes.length === 0 && "No notes to display !"}
           </div>
           {notes.map((note) => {
-            return <NoteItem key={note._id} updateNote={updateNote} note={note} />
+            return <NoteItem key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert} />
           })}
         </div>
 

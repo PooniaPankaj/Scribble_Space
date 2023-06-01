@@ -19,7 +19,7 @@ const NoteItem = (props) => {
             {/* using arrow function because we need to pass the arguments here to update note function */}
           <i className="fa-solid fa-pen-to-square " onClick={()=>{updateNote(note)}}></i>
           {/* <i className="fa-solid fa-trash-can" ></i> */}
-          <i className="fa-solid fa-trash-can" onClick={()=>(deleteNote(note._id))} style={{ color: 'red' }}></i>
+          <i className="fa-solid fa-trash-can" onClick={()=>{(deleteNote(note._id));props.showAlert("Note deleted succesfully","success")}} style={{ color: 'red' }}></i>
           </div>
         </div>
       </div>
