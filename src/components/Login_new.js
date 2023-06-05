@@ -40,10 +40,19 @@ const Login_new = (props) => {
 
     return (
 
+        <div className="top">
+        <div className='container d-flex justify-content-center my-4'>
+                <span className = "text first-text">
+                    Welcome
+                </span>
+                <span className = "text second-text">
+                    Back!
+                </span>
 
-
+            </div>
 
         <div className='container d-flex justify-content-center'>
+            
             <div className="form-structor">
                 <div className="signup slide-up">
 
@@ -62,6 +71,7 @@ const Login_new = (props) => {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     )
 }

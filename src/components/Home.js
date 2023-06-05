@@ -6,8 +6,11 @@ const Home = (props) => {
 
   return (
     <>
-    <AddNote showAlert={props.showAlert}/>
-    <MyNotes showAlert={props.showAlert}/>
+    <div className=' d-flex  w-100 h-100 justify-content-between login_page_cont'>
+      <AddNote showAlert={props.showAlert}/>
+      <MyNotes showAlert={props.showAlert}/>
+    </div>
+    
     </>
   )
 }

@@ -1,0 +1,32 @@
+.top_bar{
+    background-color: rgb(32, 76, 109) !important;
+}
+.inner_color{
+    /* background-image:linear-gradient(to right, rgb(214, 229, 132) , rgb(119, 230, 226)); */
+    background-color: rgb(213, 217, 221);
+    height: 100%;
+
+    color: rgb(14, 35, 52);
+    font-family:  monospace;
+
+}
+.notes_page_cont{
+    padding-top: 70px;
+    background-color: rgb(213, 217, 221);;
+   
+    /* margin: 0px; */
+    /* padding: 0px; */
+    margin-top: -70px;
+    height: 100vh;
+    
+}
+.notes_display{
+    font-family: sans-serif;
+    font-weight: 700 ;
+
+
+}
+.no_note_msg{
+    font-size: 30px;
+    font-family: 'poppins',sans-serif;
+}

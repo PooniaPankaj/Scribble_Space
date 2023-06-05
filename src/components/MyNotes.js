@@ -109,7 +109,7 @@ const MyNotes = (props) => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="description" className="form-label" >Description</label>
-                    <input type="text" className="form-control" value={note.description} minLength={5} required id="description" name="description" onChange={onchange} />
+                    <textarea type="text" className="form-control" value={note.description} minLength={5} required id="description" name="description" onChange={onchange} rows={3} />
                   </div>
 
                   <div className="form-check">
@@ -142,12 +142,12 @@ const MyNotes = (props) => {
       </div>
 
 
-      <div className='container my-4 w-50 border border-dark rounded p-4'>
+      <div className='  w-50 rounded p-4 '>
 
-        <h3 className='d-flex justify-content-center border-bottom w-100'>Your Notes</h3>
+        <h3 className='d-flex justify-content-center border-bottom w-100 notes_display'><i className="fa-solid fa-newspaper"/>Your Notes</h3>
         <div className='row'>
           {/* <h2>Your Notes</h2> */}
-          <div className='fw-bold text-center text-info'>
+          <div className='fw-bold text-center text-light no_note_msg'>
             {notes.length === 0 && "No notes to display !"}
           </div>
           {notes.map((note) => {

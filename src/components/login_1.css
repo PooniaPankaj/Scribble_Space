@@ -11,6 +11,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 } */
 
+
+
+
 .form-structor {
   background-color: #222;
   border-radius: 15px;
@@ -235,4 +238,135 @@ body {
   opacity: 1;
   visibility: visible;
   -webkit-transition: all 0.3s ease;
+}
+
+.login_page{
+  margin: 0px;
+  padding: 0px;
+}
+.login_page_cont{
+  width: 100%;
+  height: 100%;
+}
+.heading{
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fff;
+
+}
+*{
+  margin: 0;
+  padding :0;
+  box-sizing: border-box;
+  font-family: 'Poppins' , sans-serif;
+  
+  }
+
+  body{
+    z-index: 0;
+  /* background-image: linear-gradient(to right, rgb(31,76,103) , rgb(15,71,69)); */
+  background-color: rgba(122,177,204,1);
+  }
+
+.top{
+  margin: 0;
+  box-sizing: border-box;
+  padding :0;
+  
+}
+/* {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.container .text{
+    position: relative;
+    color: #4070F4;
+    font-size: 30px;
+    font-weight: 500;
+}
+.text.first-text{
+  color: #FFF;
+  margin-right: 10px;
+}
+.text.second-text:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(122,177,204,1);
+      /* background-image:linear-gradient(to right, rgba(31,76,103,1) , rgba(15,71,69,1) ); */
+      border-left:2px solid #4070F4 ;
+      animation: animate 4s steps(12) infinite;
+}
+.text.second-text-2:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(213, 217, 221);;
+  /* background-image:linear-gradient(to right, rgba(31,76,103,1) , rgba(15,71,69,1) ); */
+  border-left:2px solid #4070F4 ;
+  animation: animate 4s steps(12) infinite;
+}
+@keyframes animate{
+  40%, 60%{
+    left: 100%;
+  }
+  100%{
+    left:0%;
+  }
+
+}
+i{
+  padding-right: 5px;
+}
+.login_content{
+  color: #eee;
+
+}
+.notes_content{
+  color: gray;
+  font-weight: 700;
+
+}
+.notes_content button{
+  font-weight: 700;
+}
+.form_of_login{
+  margin-top: 20px;
+}
+.form_of_notes{
+  margin-top: 20px;
+}
+.form_of_login .btn{
+  background-color: rgb(23, 56, 87);
+  font-weight: 700;
+}
+.form_of_notes .btn{
+  background-color: rgb(13, 57, 97);
+}
+.login_img {
+  width: 100%;
+  margin:0px;
+  padding: 0px;
+  height: 100%;
+  
+}
+.login_img img{
+  margin-top: -70px;
+  height: 100vh;
+  width: 100%;
+
+  /* background-image: cover; */
+}
+.text_mod{
+  font-weight: 700;
 }
