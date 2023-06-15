@@ -3,7 +3,8 @@ import noteContext from "./NoteContext";
 
 
 const NoteState = (props) => {
-  const host = "http://localhost:8000";
+  // const host = "http://localhost:8000";
+  const host = "http://scribble-space-app-api"
   const intialnotes = []
   var [Notes, setNotes] = useState(intialnotes);
 
@@ -18,6 +19,7 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem('token')  },
     });
     const Json = await response.json();
+    
     setNotes(Json);    
   }
 
