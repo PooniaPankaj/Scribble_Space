@@ -45,9 +45,9 @@ router.post('/createUser',[
       // .catch(err=>{console.log(err)
       // res.json({error:"Please enter a unique value for email" , message:err.message})})
       res.json({authToken});
-    }catch{
+    }catch(err){
       // console.error(error.message);
-      res.status(500).send("Some error occured")
+      res.status(500).send("Some error occured",err)
     }
     
 
