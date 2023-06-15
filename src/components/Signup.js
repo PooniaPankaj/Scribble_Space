@@ -18,7 +18,7 @@ function Login(props) {
   const navigate = useNavigate();
 
   // const host = "http://localhost:8000";
-  const host = "http://scribble-space-app-api"
+  const host = "http://scribble-space-app-api.onrender.com"
   const [credentials, setcredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   const handlesubmit = async (e) => {
 
