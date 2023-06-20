@@ -3,8 +3,8 @@ import noteContext from "./NoteContext";
 
 
 const NoteState = (props) => {
-  // const host = "http://localhost:8000";
-  const host = "https://scribble-space-app-api.onrender.com"
+  const host = "http://localhost:8000";
+  // const host = "https://scribble-space-app-api.onrender.com"
   const intialnotes = []
   var [Notes, setNotes] = useState(intialnotes);
 
