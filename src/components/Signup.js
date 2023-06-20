@@ -17,8 +17,8 @@ import { Link, useLocation,useNavigate } from "react-router-dom"
 function Login(props) {
   const navigate = useNavigate();
 
-  // const host = "http://localhost:8000";
-  const host = "https://scribble-space-app-api.onrender.com"
+  const host = "http://localhost:8000";
+  // const host = "https://scribble-space-app-api.onrender.com"
   const [credentials, setcredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   const handlesubmit = async (e) => {
 
