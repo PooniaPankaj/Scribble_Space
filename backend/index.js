@@ -7,7 +7,7 @@ const app = express()
 const port = 8000
 app.use(express.json());
 const cors = require('cors')
-app.use(cors())
+app.use(cors({origin:"*"}))
 
 
 app.use('/api/user', require('./routes/user'));
